@@ -5,32 +5,30 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-from sklearn.model_selection import train_test_split  # noqa: E402
 from app.prediction import ModelService  # noqa: E402
-from scripts.train_model import SEED, generer, matrice  # noqa: E402
 
 s = ModelService()
 s.load()
 profils = [
     {"age": 35, 
-     "revenu_mensuel": 250000, 
-     "montant_credit": 1000000, 
+     "revenu_mensuel": 250000,
+     "montant_credit": 1000000,
      "duree_mois": 12, "anciennete_activite": 4},
-    {"age": 22, 
-     "revenu_mensuel": 60000, 
-     "montant_credit": 900000, 
+    {"age": 22,
+     "revenu_mensuel": 60000,
+     "montant_credit": 900000,
      "duree_mois": 6, "anciennete_activite": 0.5},
-    {"age": 50, 
-     "revenu_mensuel": 800000, 
-     "montant_credit": 2000000, 
+    {"age": 50,
+     "revenu_mensuel": 800000,
+     "montant_credit": 2000000,
      "duree_mois": 24, "anciennete_activite": 15},
-    {"age": 41, 
-     "revenu_mensuel": 150000, 
-     "montant_credit": 3000000, 
+    {"age": 41,
+     "revenu_mensuel": 150000,
+     "montant_credit": 3000000,
      "duree_mois": 36, "anciennete_activite": 8},
-    {"age": 65, 
-     "revenu_mensuel": 100000, 
-     "montant_credit": 300000, 
+    {"age": 65,
+     "revenu_mensuel": 100000,
+     "montant_credit": 300000,
      "duree_mois": 12, "anciennete_activite": 30},
 ]
 ref = {
