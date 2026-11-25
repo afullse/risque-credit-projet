@@ -20,6 +20,7 @@ jobs:
 
       - name: Installer les dépendances
         run: pip install -r requirements.txt
+        run: pip install pytest pytest-cov
 
       - run: pip install ruff
       - name: Lint (Ruff)
