@@ -10,7 +10,7 @@ from app.prediction import ModelService  # noqa: E402
 s = ModelService()
 s.load()
 profils = [
-    {"age": 35, 
+    {"age": 35,
      "revenu_mensuel": 250000,
      "montant_credit": 1000000,
      "duree_mois": 12, "anciennete_activite": 4},
