@@ -23,18 +23,22 @@ df = generer()
 tr, te = train_test_split(df, test_size=0.25, random_state=SEED, stratify=df.defaut)
 cand = make_pipeline(StandardScaler(), LogisticRegression(max_iter=1000, random_state=SEED))
 cand.fit(matrice(tr), tr.defaut)
-s = ModelService(); s.load()
+s = ModelService()
+s.load()
 X, y = matrice(te), te.defaut.to_numpy()
 
 
 def m(model):
-    p = model.predict_proba(X)[:, 1]; yh = (p >= .5).astype(int)
+    p = model.predict_proba(X)[:, 1]
+    yh = (p >= .5).astype(int)
     return dict(rappel=recall_score(y, yh), f1=f1_score(y, yh),
                 precision=precision_score(y, yh), auc=roc_auc_score(y, p)), p
 
 
-mr, pr = m(s.model); mc, pc = m(cand)
-lignes = ["| Métrique | Réf. v1.0.0 | Cand. v1.1.0 | Écart | Tolérance | Verdict |", "|---|---|---|---|---|---|"]
+mr, pr = m(s.model)
+mc, pc = m(cand)
+lignes = ["| Métrique | Réf. v1.0.0 | Cand. v1.1.0 | Écart | Tolérance | Verdict |", 
+          "|---|---|---|---|---|---|"]
 for k in ["rappel", "f1", "precision", "auc"]:
     d = mc[k] - mr[k]
     t = tol.get(f"{k}_baisse_max")
