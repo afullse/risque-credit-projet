@@ -18,21 +18,29 @@ from app.prediction import ModelService  # noqa: E402
 from app.preprocessing import transformer  # noqa: E402
 
 URL = "http://127.0.0.1:8000/predict"
-D = {"age": 35, "revenu_mensuel": 250000, "montant_credit": 1000000, "duree_mois": 12, "anciennete_activite": 4}
+D = {"age": 35, 
+     "revenu_mensuel": 250000, 
+     "montant_credit": 1000000, 
+     "duree_mois": 12, "anciennete_activite": 4}
 
 
 def p(vals, q):
     return float(np.percentile(vals, q)) * 1000
 
 
-s = ModelService(); s.load()
+s = ModelService()
+s.load()
 inf = []
 for _ in range(2000):
-    t = time.perf_counter(); s.predict(D); inf.append(time.perf_counter() - t)
+    t = time.perf_counter()
+    s.predict(D)
+    inf.append(time.perf_counter() - t)
 X = transformer(D)
 brut = []
 for _ in range(2000):
-    t = time.perf_counter(); s.model.predict_proba(X); brut.append(time.perf_counter() - t)
+    t = time.perf_counter()
+    s.model.predict_proba(X)
+    brut.append(time.perf_counter() - t)
 
 res = {"config": {"python": platform.python_version(), "os": platform.platform(),
                   "cpu": platform.processor() or platform.machine(),
@@ -47,7 +55,9 @@ with httpx.Client() as c:
 
 
 def appel(c):
-    t = time.perf_counter(); r = c.post(URL, json=D); return time.perf_counter() - t, r.status_code
+    t = time.perf_counter()
+    r = c.post(URL, json=D)
+    return time.perf_counter() - t, r.status_code
 
 
 for users in [1, 4, 8, 16, 32]:
