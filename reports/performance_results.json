@@ -1,0 +1,66 @@
+{
+  "config": {
+    "python": "3.12.16",
+    "os": "Linux-6.1.158.2-microsoft-standard-x86_64-with-glibc2.38",
+    "cpu": "x86_64",
+    "serveur": "uvicorn 1 worker, client httpx local (m\u00eame machine)"
+  },
+  "inference": {
+    "predict_proba_p50_ms": 0.12032900008307479,
+    "predict_proba_p95_ms": 0.3393896000829951,
+    "pipeline_p50_ms": 0.14258650003284856,
+    "pipeline_p95_ms": 0.6349118999764866
+  },
+  "charge": [
+    {
+      "clients": 1,
+      "requetes": 300,
+      "erreurs": 0,
+      "p50_ms": 2.437403999920207,
+      "p95_ms": 7.986642899953723,
+      "max_ms": 26.43302399997083,
+      "moyenne_ms": 4.14259628666817,
+      "debit_rps": 236.5808926263795
+    },
+    {
+      "clients": 4,
+      "requetes": 300,
+      "erreurs": 0,
+      "p50_ms": 11.029506500051411,
+      "p95_ms": 46.15459625001677,
+      "max_ms": 58.16179499993268,
+      "moyenne_ms": 16.03518051333026,
+      "debit_rps": 247.35430556220695
+    },
+    {
+      "clients": 8,
+      "requetes": 300,
+      "erreurs": 0,
+      "p50_ms": 20.247398500032432,
+      "p95_ms": 60.934760350011175,
+      "max_ms": 73.89268100007484,
+      "moyenne_ms": 29.200085236664865,
+      "debit_rps": 270.51500617115516
+    },
+    {
+      "clients": 16,
+      "requetes": 300,
+      "erreurs": 0,
+      "p50_ms": 67.22858699998824,
+      "p95_ms": 174.6352931999525,
+      "max_ms": 288.549904999968,
+      "moyenne_ms": 66.61869749332975,
+      "debit_rps": 227.78077451647508
+    },
+    {
+      "clients": 32,
+      "requetes": 300,
+      "erreurs": 0,
+      "p50_ms": 112.06828399997448,
+      "p95_ms": 176.8347252500064,
+      "max_ms": 216.28458399993633,
+      "moyenne_ms": 116.00427328333353,
+      "debit_rps": 242.58369312679844
+    }
+  ]
+}

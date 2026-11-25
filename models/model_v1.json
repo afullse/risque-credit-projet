@@ -1,0 +1,45 @@
+{
+  "nom": "credit-risk-logreg",
+  "version": "1.0.0",
+  "date_entrainement": "2026-11-22",
+  "algorithme": "StandardScaler + LogisticRegression(class_weight=balanced)",
+  "features": [
+    "age",
+    "log_revenu",
+    "log_montant",
+    "duree_mois",
+    "anciennete_activite",
+    "ratio_mensualite_revenu",
+    "ratio_montant_revenu_annuel"
+  ],
+  "seed": 42,
+  "metriques": {
+    "rappel": 0.6897,
+    "f1": 0.6943,
+    "precision": 0.6989,
+    "auc": 0.8457
+  },
+  "donnees": "synthétiques (scripts/train_model.py) - non représentatives",
+  "plages_entrainement": {
+    "age": [
+      18.0,
+      70.0
+    ],
+    "revenu_mensuel": [
+      30000.0,
+      1589000.0
+    ],
+    "montant_credit": [
+      50000.0,
+      10900000.0
+    ],
+    "duree_mois": [
+      3.0,
+      60.0
+    ],
+    "anciennete_activite": [
+      0.1,
+      29.4
+    ]
+  }
+}

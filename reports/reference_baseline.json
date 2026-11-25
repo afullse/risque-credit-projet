@@ -1,0 +1,73 @@
+{
+  "version": "1.0.0",
+  "metriques": {
+    "rappel": 0.6897,
+    "f1": 0.6943,
+    "precision": 0.6989,
+    "auc": 0.8457
+  },
+  "tolerances": {
+    "proba_abs": 0.02,
+    "rappel_baisse_max": 0.03,
+    "f1_baisse_max": 0.03,
+    "rappel_min_absolu": 0.6
+  },
+  "cles_sortie": [
+    "probabilite_defaut",
+    "classe_risque",
+    "alerte_hors_distribution",
+    "version_modele"
+  ],
+  "profils": [
+    {
+      "entree": {
+        "age": 35,
+        "revenu_mensuel": 250000,
+        "montant_credit": 1000000,
+        "duree_mois": 12,
+        "anciennete_activite": 4
+      },
+      "probabilite": 0.370293
+    },
+    {
+      "entree": {
+        "age": 22,
+        "revenu_mensuel": 60000,
+        "montant_credit": 900000,
+        "duree_mois": 6,
+        "anciennete_activite": 0.5
+      },
+      "probabilite": 0.998529
+    },
+    {
+      "entree": {
+        "age": 50,
+        "revenu_mensuel": 800000,
+        "montant_credit": 2000000,
+        "duree_mois": 24,
+        "anciennete_activite": 15
+      },
+      "probabilite": 0.047033
+    },
+    {
+      "entree": {
+        "age": 41,
+        "revenu_mensuel": 150000,
+        "montant_credit": 3000000,
+        "duree_mois": 36,
+        "anciennete_activite": 8
+      },
+      "probabilite": 0.253454
+    },
+    {
+      "entree": {
+        "age": 65,
+        "revenu_mensuel": 100000,
+        "montant_credit": 300000,
+        "duree_mois": 12,
+        "anciennete_activite": 30
+      },
+      "probabilite": 0.007556
+    }
+  ]
+}
