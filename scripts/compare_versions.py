@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 
 import numpy as np
-import pandas as pd
+import pandas as pd # noqa: F401
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score, precision_score, recall_score, roc_auc_score
 from sklearn.pipeline import make_pipeline
@@ -13,9 +13,11 @@ from sklearn.preprocessing import StandardScaler
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
+
+from sklearn.model_selection import train_test_split  # noqa: E402
+
 from app.prediction import ModelService  # noqa: E402
 from scripts.train_model import SEED, generer, matrice  # noqa: E402
-from sklearn.model_selection import train_test_split  # noqa: E402
 
 ref = json.loads((ROOT / "reports/reference_baseline.json").read_text("utf-8"))
 tol = ref["tolerances"]
@@ -37,7 +39,7 @@ def m(model):
 
 mr, pr = m(s.model)
 mc, pc = m(cand)
-lignes = ["| Métrique | Réf. v1.0.0 | Cand. v1.1.0 | Écart | Tolérance | Verdict |", 
+lignes = ["| Métrique | Réf. v1.0.0 | Cand. v1.1.0 | Écart | Tolérance | Verdict |",
           "|---|---|---|---|---|---|"]
 for k in ["rappel", "f1", "precision", "auc"]:
     d = mc[k] - mr[k]
