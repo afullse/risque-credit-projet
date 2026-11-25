@@ -18,9 +18,9 @@ from app.prediction import ModelService  # noqa: E402
 from app.preprocessing import transformer  # noqa: E402
 
 URL = "http://127.0.0.1:8000/predict"
-D = {"age": 35, 
-     "revenu_mensuel": 250000, 
-     "montant_credit": 1000000, 
+D = {"age": 35,
+     "revenu_mensuel": 250000,
+     "montant_credit": 1000000,
      "duree_mois": 12, "anciennete_activite": 4}
 
 
