@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 
 import numpy as np
-import pandas as pd # noqa: F401
+import pandas as pd  # noqa: F401
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score, precision_score, recall_score, roc_auc_score
 from sklearn.pipeline import make_pipeline
